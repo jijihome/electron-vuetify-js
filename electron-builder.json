@@ -1,0 +1,26 @@
+{
+  "electronDownload": {
+    "mirror": "https://mirrors.huaweicloud.com/repository/npm/electron/"
+  },
+  "appId": "electron-vuetify-js",
+  "productName": "electron-vuetify-js",
+  "directories": {
+    "output": "release/${version}"
+  },
+  "files": ["dist/**/*", "src/electron/**/*", "icon/icon.ico"],
+  "mac": {
+    "target": ["dmg"]
+  },
+  "win": {
+    "target": [
+      {
+        "target": "portable",
+        "arch": ["x64"]
+      }
+    ],
+    "icon": "icon/icon.ico"
+  },
+  "linux": {
+    "target": ["AppImage"]
+  }
+}
