@@ -30,11 +30,12 @@
 启动开发服务器:
 
 ```bash
-yarn app:dev
+yarn start
 ```
 
 ## 项目命令
 
+- `yarn start`: 使用 nodemon 启动 Vite 开发服务器，并在文件更改时自动重新加载。
 - `yarn dev`: 在开发环境下启动 Vite 开发服务器。
 - `yarn build`: 使用 Vite 构建项目,然后使用 electron-builder 打包应用程序。
 - `yarn preview`: 预览 Vite 构建后的生产版本。
