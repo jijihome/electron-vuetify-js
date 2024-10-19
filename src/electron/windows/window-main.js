@@ -9,10 +9,12 @@ const windowOptions = {
   show: false,
   autoHideMenuBar: true,
   webPreferences: {
+    preload: path.join(__dirname, '../preload.js'),
     nodeIntegration: true,
     contextIsolation: false,
     sandbox: false,
     webSecurity: false,
+    enableRemoteModule: true, // 启用远程模块
   },
 };
 
@@ -32,6 +34,9 @@ const createMainWindow = () => {
   const mainWindow = new BrowserWindow(windowOptions);
 
   try {
+    // 禁用缓存，防止缓存导致页面不刷新导致载入部分资源失败
+    mainWindow.webContents.session.clearCache();
+
     // 确定窗口启动时加载的URL
     const startUrl = makeUrl();
     console.log('Loading URL:', startUrl);
