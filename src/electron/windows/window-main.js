@@ -12,9 +12,7 @@ const windowOptions = {
     nodeIntegration: true,
     contextIsolation: false,
     sandbox: false,
-    webSecurity: true,
-    contentSecurityPolicy:
-      "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'",
+    webSecurity: false,
   },
 };
 
@@ -23,7 +21,7 @@ const makeUrl = () => {
     return process.env.VITE_DEV_SERVER_URL;
   } else {
     return url.format({
-      pathname: path.join(__dirname, '../../dist/index.html'),
+      pathname: path.join(__dirname, '../../../dist/index.html'),
       protocol: 'file:',
       slashes: true,
     });
@@ -40,7 +38,8 @@ const createMainWindow = () => {
     // 加载URL到主窗口
     mainWindow.loadURL(startUrl);
 
-    if (isDev()) mainWindow.webContents.openDevTools();
+    // if (isDev())
+    mainWindow.webContents.openDevTools();
   } catch (error) {
     console.error('load url error:', error);
   }
