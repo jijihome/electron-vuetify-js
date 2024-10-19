@@ -4,7 +4,7 @@
   "description": "electron-vuetify-js",
   "author": "WangJianHui",
   "scripts": {
-    "start": "nodemon --watch src/electron --exec \"npm run app:dev\"",
+    "start": "nodemon --watch src/electron --exec \"yarn app:dev\"",
     "dev": "vite",
     "build": "vite build && electron-builder",
     "preview": "vite preview",
