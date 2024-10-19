@@ -85,6 +85,7 @@ export default defineConfig({
         },
       },
     },
+    assetsInlineLimit: 0, // 禁用小文件内联,确保所有资源文件都会被复制
   },
   define: { 'process.env': {} },
   resolve: {
