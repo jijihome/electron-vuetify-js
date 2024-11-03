@@ -10,11 +10,8 @@ const windowOptions = {
   autoHideMenuBar: true,
   webPreferences: {
     preload: path.join(__dirname, '../preload.js'),
-    nodeIntegration: true,
-    contextIsolation: false,
-    sandbox: false,
-    webSecurity: false,
-    enableRemoteModule: true, // 启用远程模块
+    nodeIntegration: false,
+    contextIsolation: true,
   },
 };
 
