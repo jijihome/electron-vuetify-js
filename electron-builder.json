@@ -2,7 +2,7 @@
   "electronDownload": {
     "mirror": "https://mirrors.huaweicloud.com/repository/npm/electron/"
   },
-  "appId": "electron-vuetify-js",
+  "appId": "WangJianHui.electron-vuetify-js",
   "productName": "electron-vuetify-js",
   "directories": {
     "output": "release/${version}"
