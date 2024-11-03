@@ -94,8 +94,8 @@ export default defineConfig({
     },
     extensions: ['.js', '.json', '.jsx', '.mjs', '.ts', '.tsx', '.vue'],
   },
-  server: {
-    port: 3033,
-  },
+  // server: {
+  //   port: 3033,
+  // },
   clearScreen: true,
 });
