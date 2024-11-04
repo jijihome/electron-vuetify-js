@@ -2,9 +2,7 @@ const { BrowserWindow, dialog, screen } = require('electron');
 const 配置 = require('../config');
 
 const el_取主窗口 = () => {
-  return BrowserWindow.getAllWindows().find(
-    (window) => !window.isDestroyed() && window.isMain,
-  );
+  return BrowserWindow.getAllWindows().find((window) => !window.isDestroyed() && window.isMain);
 };
 
 const el_取当前窗口 = () => {
@@ -41,13 +39,7 @@ const el_取当前窗口句柄 = () => {
  * @param {string[]} [可选] buttons
  * @returns {Promise<number>}
  */
-const el_消息框 = (
-  window = null,
-  type = 'info',
-  title = null,
-  message,
-  buttons = ['确定'],
-) => {
+const el_消息框 = (window = null, type = 'info', title = null, message, buttons = ['确定']) => {
   console.log('showMessageBox', window, type, title, message, buttons);
   // 直接使用 window 参数或获取当前焦点窗口
   const parent = window ? window : BrowserWindow.getFocusedWindow();
@@ -87,9 +79,14 @@ const el_窗口_发送消息 = (window, channel, ...args) => {
 };
 
 const el_主窗口_发送消息 = (channel, ...args) => {
-  const mainWindow = el_取主窗口();
-  if (!mainWindow) return;
-  el_窗口_发送消息(mainWindow, channel, ...args);
+  try {
+    const mainWindow = el_取主窗口();
+    if (!mainWindow) return;
+    el_窗口_发送消息(mainWindow, channel, ...args);
+  } catch (error) {
+    console.error('主窗口发送消息失败:', error);
+    throw error;
+  }
 };
 
 /**
