@@ -103,6 +103,12 @@ const el_主窗口_最小化 = () => {
   }
 };
 
+const el_打开开发者工具 = () => {
+  const window = el_取当前窗口();
+  if (!window) return;
+  window.webContents.openDevTools();
+};
+
 module.exports = {
   el_取主窗口,
   el_取当前窗口,
@@ -116,4 +122,5 @@ module.exports = {
   el_窗口_发送消息,
   el_主窗口_发送消息,
   el_主窗口_最小化,
+  el_打开开发者工具,
 };
